@@ -1,8 +1,9 @@
-FROM python:3.8
+FROM python:3.8-slim-bullseye
 
 RUN apt-get update
 RUN apt-get upgrade -y
 
+RUN apt-get install gnupg2 -y
 COPY ./monetdb.list /etc/apt/sources.list.d/
 COPY ./MonetDB-GPG-KEY /
 RUN apt-key add /MonetDB-GPG-KEY
