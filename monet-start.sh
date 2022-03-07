@@ -1,5 +1,13 @@
 #!/bin/bash
 
+install_pkgs() {
+  local IFS=,
+  local WORD_LIST=($1)
+  for word in "${WORD_LIST[@]}"; do
+    apt-get install -y $word
+  done
+}
+
 set -eo pipefail
 
 if [[ -z "${MONET_DBFARM}" ]]; then
@@ -10,6 +18,9 @@ if [[ -z "${MONET_DATABASE}" ]]; then
   echo "MONET_DATABASE not specified, exiting"
   exit 1
 fi
+
+echo "Installing additional packages..."
+install_pkgs ${ADDITIONAL_PKGS}
 
 # Print server stats
 mserver5 --version
