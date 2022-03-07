@@ -13,5 +13,7 @@ Environment variables:
 |---|---|---|---|
 | MONET_DBFARM | false | /var/lib/monetdb/dbfarm | The MonetDB farm directory. |
 | MONET_DATABASE | true | N/A | The MonetDB database name. |
-| MONETDB_PASSWORD | false | N/A | The MonetDB database password. |
+| MONETDB_PASSWORD | false | N/A | The MonetDB database connection password. |
 | ADDITIONAL_PKGS | false | '' | Additional packages to install (comma-separated). These packages will be installed using `apt-get install`. |
+
+The username of the database connection is always `monetdb`.
